@@ -1,0 +1,110 @@
+/* Estilos para el Navbar */
+#mainNavbar {
+    background-color: rgba(255, 255, 255, 0.1); /* Fondo semi-transparente inicial */
+    backdrop-filter: blur(10px); /* Efecto de desenfoque */
+    -webkit-backdrop-filter: blur(10px); /* Soporte para Safari */
+    transition: background-color 0.3s ease, backdrop-filter 0.3s ease; /* Transición suave */
+    font-family: 'UrbanFont', sans-serif; /* Fuente urbana */
+}
+
+/* Fuente urbana (puedes usar Google Fonts) */
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@400;700&display=swap');
+
+#mainNavbar .navbar-nav .nav-link {
+    font-family: 'Roboto Condensed', sans-serif; /* Fuente urbana */
+    font-weight: 700; /* Negrita */
+    font-size: 1.1rem; /* Tamaño de la fuente */
+    text-transform: uppercase; /* Texto en mayúsculas */
+    margin: 0 15px; /* Espaciado entre enlaces */
+}
+
+/* Ajustes para el logo */
+.navbar-brand img {
+    border-radius: 50%; /* Logo circular */
+    border: 2px solid #fff; /* Borde blanco */
+}
+
+/* Centrar los enlaces en el navbar */
+.navbar-collapse {
+    justify-content: center;
+}
+/* Estilos para las secciones */
+.section {
+    height: 100vh; /* Cada sección ocupa toda la pantalla */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+/* Espacio para evitar que el contenido quede detrás del navbar */
+body {
+    padding-top: 56px;
+}
+
+/* Estilos para el Footer */
+.footer {
+    background-color: #333; /* Fondo oscuro */
+    color: #fff; /* Texto blanco */
+    font-family: 'Roboto Condensed', sans-serif; /* Fuente urbana */
+}
+
+.footer h5 {
+    font-weight: 700; /* Negrita */
+    font-size: 1.2rem; /* Tamaño de la fuente */
+    text-transform: uppercase; /* Texto en mayúsculas */
+    margin-bottom: 1rem; /* Espaciado inferior */
+}
+
+.footer a {
+    color: #fff; /* Texto blanco para enlaces */
+    text-decoration: none; /* Sin subrayado */
+    transition: color 0.3s ease; /* Transición suave */
+}
+
+.footer a:hover {
+    color: #ffc107; /* Color amarillo al pasar el mouse */
+}
+
+/* Estilos para el mapa */
+.map-container {
+    border: 3px solid #ffc107; /* Borde amarillo */
+    border-radius: 10px; /* Bordes redondeados */
+    overflow: hidden; /* Oculta el desbordamiento del iframe */
+}
+
+/* Estilos para los derechos de autor */
+.footer .text-center {
+    margin-top: 2rem; /* Espaciado superior */
+    font-size: 0.9rem; /* Tamaño de la fuente */
+}
+
+/* Estilos para los íconos de redes sociales */
+.social-icon {
+    width: 40px; /* Tamaño del ícono */
+    height: 40px; /* Tamaño del ícono */
+    border-radius: 50%; /* Forma circular */
+    margin-right: 10px; /* Espaciado a la derecha */
+    font-size: 1.2rem; /* Tamaño del ícono */
+}
+
+/* Colores de fondo para cada red social */
+.bg-facebook {
+    background-color: #3b5998; /* Azul de Facebook */
+}
+
+.bg-instagram {
+    background-color: #e4405f; /* Rosa de Instagram */
+}
+
+.bg-twitter {
+    background-color: #1da1f2; /* Azul de Twitter */
+}
+
+.bg-youtube {
+    background-color: #cd201f; /* Rojo de YouTube */
+}
+
+.bg-tiktok {
+    background-color: #000000; /* Negro de Tiktok */
+}

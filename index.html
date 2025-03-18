@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DJZ </title>
+    <link rel="icon" type="image/x-icon" href="images/logo.ico">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="styles.css">
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav id="mainNavbar" class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <div class="container-fluid">
+            <!-- Logo -->
+            <a class="navbar-brand" href="#">
+                <img src="images/logo.png" alt="Logo" width="90" height="70" class="d-inline-block align-text-top">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#inicio">Inicio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#productos">Productos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#ofertas">Ofertas</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contacto">Contacto</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- Sección Inicio -->
+    <section id="inicio" class="section bg-light text-white py-5">
+        <div id="carouselExampleFade" class="carousel slide carousel-fade">
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <img src="images/img1.png" class="d-block w-100" alt="...">
+              </div>
+              <div class="carousel-item">
+                <img src="images/img2.png" class="d-block w-100" alt="...">
+              </div>
+              <div class="carousel-item">
+                <img src="images/img3.png" class="d-block w-100" alt="...">
+              </div>
+              <div class="carousel-item">
+                <img src="images/img4.png" class="d-block w-100" alt="...">
+              </div>
+              <div class="carousel-item">
+                <img src="images/img5.png" class="d-block w-100" alt="...">
+              </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Next</span>
+            </button>
+          </div>
+    </section>
+
+    <!-- Sección Productos -->
+    <section id="productos" class="section bg-light py-5">
+        <div class="container">
+            <h2>Productos</h2>
+            <p>Descubre nuestros productos exclusivos.</p>
+        </div>
+    </section>
+
+    <!-- Sección Ofertas -->
+    <section id="ofertas" class="section bg-warning py-5">
+        <div class="container">
+            <h2>Ofertas</h2>
+            <p>Aprovecha nuestras ofertas especiales.</p>
+        </div>
+    </section>
+
+    <!-- Sección Contacto -->
+    <section id="contacto" class="section bg-light text-white py-5">
+        <div class="container">
+            <h2>Contacto</h2>
+            <p>Ponte en contacto con nosotros.</p>
+        </div>
+    </section>
+
+      <!-- Footer -->
+<footer class="footer bg-dark text-white py-5">
+    <div class="container">
+        <div class="row">
+            <!-- Columna 1: Mapa -->
+            <div class="col-md-6 mb-4">
+                <h5 class="text-uppercase">Ubicación</h5>
+                <div class="map-container">
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1979.44641923655!2d-73.1266097016052!3d7.138389299999998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e42eca23437c6f7%3A0x808f219973eef3f2!2sUniversidad%20de%20Investigaci%C3%B3n%20y%20Desarrollo!5e0!3m2!1ses-419!2sco!4v1742333759953!5m2!1ses-419!2sco"
+                        width="100%"
+                        height="300"
+                        style="border:0;"
+                        allowfullscreen=""
+                        loading="lazy">
+                    </iframe>
+                </div>
+            </div>
+
+            <!-- Columna 2: Sobre Nosotros -->
+            <div class="col-md-3 mb-4">
+                <h5 class="text-uppercase">Sobre Nosotros</h5>
+                <p class="text-light">
+                    Somos un grupo de estudiantes y emprendedores apasionados por la moda urbana. Queremos traer estilos nuevos e innovadores que reflejen nuestra esencia y creatividad. ¡Únete a nosotros en esta aventura!
+                </p>
+            </div>
+
+            <!-- Columna 3: Redes Sociales -->
+            <div class="col-md-3 mb-4">
+                <h5 class="text-uppercase">Síguenos</h5>
+                <ul class="list-unstyled">
+                    <li class="mb-2">
+                        <a href="https://facebook.com" class="text-white text-decoration-none d-flex align-items-center">
+                            <span class="social-icon bg-facebook d-flex align-items-center justify-content-center">
+                                <i class="fab fa-facebook-f"></i>
+                            </span>
+                            <span class="ms-2">Facebook</span>
+                        </a>
+                    </li>
+                    <li class="mb-2">
+                        <a href="https://instagram.com" class="text-white text-decoration-none d-flex align-items-center">
+                            <span class="social-icon bg-instagram d-flex align-items-center justify-content-center">
+                                <i class="fab fa-instagram"></i>
+                            </span>
+                            <span class="ms-2">Instagram</span>
+                        </a>
+                    </li>
+                    <li class="mb-2">
+                        <a href="https://twitter.com" class="text-white text-decoration-none d-flex align-items-center">
+                            <span class="social-icon bg-twitter d-flex align-items-center justify-content-center">
+                                <i class="fab fa-twitter"></i>
+                            </span>
+                            <span class="ms-2">Twitter</span>
+                        </a>
+                    </li>
+                    <li class="mb-2">
+                        <a href="https://youtube.com" class="text-white text-decoration-none d-flex align-items-center">
+                            <span class="social-icon bg-youtube d-flex align-items-center justify-content-center">
+                                <i class="fab fa-youtube"></i>
+                            </span>
+                            <span class="ms-2">YouTube</span>
+                        </a>
+                    </li>
+                    <li class="mb-2">
+                        <a href="https://tiktok.com" class="text-white text-decoration-none d-flex align-items-center">
+                            <span class="social-icon bg-tiktok d-flex align-items-center justify-content-center">
+                                <i class="fab fa-tiktok"></i>
+                            </span>
+                            <span class="ms-2">Tiktok</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Derechos de autor -->
+        <div class="text-center mt-4">
+            <p class="mb-0">&copy; 2025 DJZ. Todos los derechos reservados.</p>
+        </div>
+    </div>
+</footer>
+
+    <!-- Bootstrap JS y dependencias -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
+    <!-- Custom JS -->
+    <script src="scripts.js"></script>
+</body>
+</html>
