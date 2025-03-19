@@ -171,24 +171,24 @@ document.addEventListener('DOMContentLoaded', function () {
 // Agregar al carrito Camiseta Personalizada
 //Esto solo funciona con la extencion live server de VSCode
 document.addEventListener("DOMContentLoaded", function () {
-    console.log("✅ scripts.js está cargado correctamente.");
-
     const cart = [];
     const cartIcon = document.getElementById('cartIcon');
     const cartCount = document.getElementById('cartCount');
     const cartItems = document.getElementById('cartItems');
     const cartTotal = document.getElementById('cartTotal');
+    const misPedidosItems = document.getElementById('misPedidosItems');
+    const misPedidosTotal = document.getElementById('misPedidosTotal');
     const addToCartButton = document.getElementById('addToCart');
     const priceDisplay = document.getElementById('priceDisplay');
     const canvas = document.getElementById('tshirtCanvas');
     const ctx = canvas.getContext('2d');
 
-    const basePrice = 60000; 
+    const basePrice = 60000;
 
     // Cargar imagen de la camiseta asegurando que no haya restricciones
     const tshirtImage = new Image();
     tshirtImage.crossOrigin = "anonymous"; // Permite cargar imágenes sin restricciones
-    tshirtImage.src = 'images/camisetaBlanca.png'; 
+    tshirtImage.src = 'images/camisetaBlanca.png';
 
     tshirtImage.onload = function () {
         console.log("✅ Imagen de la camiseta cargada correctamente.");
@@ -201,15 +201,9 @@ document.addEventListener("DOMContentLoaded", function () {
         return;
     }
 
+    // Agregar al carrito (como ya tienes)
     addToCartButton.addEventListener('click', function () {
-        console.log("🛒 ¡El botón 'Agregar al Carrito' fue presionado!");
-
-        // Limpiar el canvas y redibujar la imagen antes de exportar
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
-        ctx.drawImage(tshirtImage, 0, 0, canvas.width, canvas.height);
-
-        const imageURL = canvas.toDataURL("image/png"); // Intentar exportar de nuevo
-        console.log("📸 Imagen generada en el canvas:", imageURL.length > 50 ? "✅ Imagen generada correctamente" : "❌ ERROR: No se generó imagen");
+        const imageURL = canvas.toDataURL("image/png");
 
         if (!imageURL || imageURL === "data:,") {
             alert("Primero personaliza tu camiseta antes de agregarla al carrito.");
@@ -217,18 +211,15 @@ document.addEventListener("DOMContentLoaded", function () {
         }
 
         cart.push({ image: imageURL, price: basePrice });
-        console.log("🔹 Estado actual del carrito:", cart);
-
         updateCart();
     });
 
+    // Función para actualizar el carrito
     function updateCart() {
-        console.log("🔄 Ejecutando updateCart()...");
         cartItems.innerHTML = '';
         let total = 0;
 
         cart.forEach((item, index) => {
-            console.log("✅ Añadiendo al carrito:", item);
             total += item.price;
 
             const cartItem = document.createElement('li');
@@ -246,17 +237,43 @@ document.addEventListener("DOMContentLoaded", function () {
         cartTotal.textContent = `${total.toFixed(2)}$`;
         cartCount.textContent = cart.length;
 
-        console.log("🛒 Carrito actualizado. Total productos:", cart.length);
-
         document.querySelectorAll('.remove-item').forEach(button => {
             button.addEventListener('click', function () {
                 const index = this.getAttribute('data-index');
-                console.log("❌ Eliminando producto en índice:", index);
                 cart.splice(index, 1);
                 updateCart();
             });
         });
     }
+
+    // Proceder al pago (guardar los productos en "Mis Pedidos")
+    document.getElementById('procederAlPago').addEventListener('click', function () {
+        // Guardar los productos en "Mis Pedidos"
+        cart.forEach(item => {
+            const pedidoItem = document.createElement('li');
+            pedidoItem.classList.add('list-group-item', 'd-flex', 'justify-content-between', 'align-items-center');
+            pedidoItem.innerHTML = `
+                <img src="${item.image}" width="50" height="50" class="img-thumbnail">
+                <span>$${item.price.toFixed(2)}</span>
+            `;
+            misPedidosItems.appendChild(pedidoItem);
+        });
+
+        // Actualizar el total de Mis Pedidos
+        let totalPedido = cart.reduce((acc, item) => acc + item.price, 0);
+        misPedidosTotal.textContent = `${totalPedido.toFixed(2)}$`;
+
+        // Vaciar el carrito
+        cart.length = 0; // Esto borra el carrito
+        updateCart(); // Actualiza la vista del carrito
+    });
+
+    // Mostrar el modal "Mis Pedidos" al hacer clic en el enlace
+    document.getElementById('misPedidosLink').addEventListener('click', function () {
+        // Mostrar el modal de Mis Pedidos
+        const misPedidosModal = new bootstrap.Modal(document.getElementById('misPedidosModal'));
+        misPedidosModal.show();
+    });
 
     if (cartIcon) {
         cartIcon.addEventListener('click', function () {
@@ -265,11 +282,3 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 });
-
-
-
-
-
-
-    
-    
