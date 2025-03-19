@@ -65,3 +65,211 @@ document.addEventListener('DOMContentLoaded', function () {
             changeTitle();
         }
     }, 2000); // Cambia el título cada 2 segundos
+
+    // Subir imagen
+    document.addEventListener('DOMContentLoaded', function () {
+        const uploadInput = document.getElementById('uploadImage');
+        const canvas = document.getElementById('tshirtCanvas');
+        const ctx = canvas.getContext('2d');
+    
+        // Imagen de la camiseta
+        const tshirtImage = new Image();
+        tshirtImage.src = 'images/camisetaBlanca.png'; 
+        tshirtImage.onload = function () {
+            drawTshirt();
+        };
+    
+        let uploadedImage = null;
+        let imgX = 120, imgY = 160, imgWidth = 150, imgHeight = 150;
+        let isDragging = false;
+    
+        function drawTshirt() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+    
+            // Ajuste automático de la imagen de la camiseta
+            const aspectRatio = tshirtImage.width / tshirtImage.height;
+            let newWidth = canvas.width;
+            let newHeight = newWidth / aspectRatio;
+    
+            if (newHeight > canvas.height) {
+                newHeight = canvas.height;
+                newWidth = newHeight * aspectRatio;
+            }
+    
+            const offsetX = (canvas.width - newWidth) / 2;
+            const offsetY = (canvas.height - newHeight) / 2;
+    
+            ctx.drawImage(tshirtImage, offsetX, offsetY, newWidth, newHeight);
+    
+            // Dibujar la imagen subida con efecto realista
+            if (uploadedImage) {
+                ctx.save(); // Guarda el estado del canvas
+    
+                ctx.globalAlpha = 0.85; // Le da un efecto de tinta en la tela
+                ctx.globalCompositeOperation = "multiply"; // Fusión con la textura de la camiseta
+                ctx.drawImage(uploadedImage, imgX, imgY, imgWidth, imgHeight);
+    
+                ctx.restore(); // Restaura el estado del canvas
+            }
+        }
+    
+        // Evento para subir una imagen
+        uploadInput.addEventListener('change', function (event) {
+            const file = event.target.files[0];
+            if (!file) return;
+    
+            const reader = new FileReader();
+            reader.onload = function (e) {
+                uploadedImage = new Image();
+                uploadedImage.src = e.target.result;
+    
+                uploadedImage.onload = function () {
+                    drawTshirt();
+                };
+            };
+            reader.readAsDataURL(file);
+        });
+    
+        // Eventos para mover la imagen con el mouse
+        canvas.addEventListener('mousedown', function (e) {
+            const rect = canvas.getBoundingClientRect();
+            const mouseX = e.clientX - rect.left;
+            const mouseY = e.clientY - rect.top;
+    
+            if (mouseX >= imgX && mouseX <= imgX + imgWidth && mouseY >= imgY && mouseY <= imgY + imgHeight) {
+                isDragging = true;
+            }
+        });
+    
+        canvas.addEventListener('mousemove', function (e) {
+            if (!isDragging) return;
+    
+            const rect = canvas.getBoundingClientRect();
+            imgX = e.clientX - rect.left - imgWidth / 2;
+            imgY = e.clientY - rect.top - imgHeight / 2;
+            drawTshirt();
+        });
+    
+        canvas.addEventListener('mouseup', function () {
+            isDragging = false;
+        });
+    
+        // Permitir zoom con la rueda del mouse
+        canvas.addEventListener('wheel', function (e) {
+            e.preventDefault();
+            if (e.deltaY < 0) {
+                imgWidth *= 1.1;
+                imgHeight *= 1.1;
+            } else {
+                imgWidth *= 0.9;
+                imgHeight *= 0.9;
+            }
+            drawTshirt();
+        });
+    });
+
+// Agregar al carrito Camiseta Personalizada
+//Esto solo funciona con la extencion live server de VSCode
+document.addEventListener("DOMContentLoaded", function () {
+    console.log("✅ scripts.js está cargado correctamente.");
+
+    const cart = [];
+    const cartIcon = document.getElementById('cartIcon');
+    const cartCount = document.getElementById('cartCount');
+    const cartItems = document.getElementById('cartItems');
+    const cartTotal = document.getElementById('cartTotal');
+    const addToCartButton = document.getElementById('addToCart');
+    const priceDisplay = document.getElementById('priceDisplay');
+    const canvas = document.getElementById('tshirtCanvas');
+    const ctx = canvas.getContext('2d');
+
+    const basePrice = 60000; 
+
+    // Cargar imagen de la camiseta asegurando que no haya restricciones
+    const tshirtImage = new Image();
+    tshirtImage.crossOrigin = "anonymous"; // Permite cargar imágenes sin restricciones
+    tshirtImage.src = 'images/camisetaBlanca.png'; 
+
+    tshirtImage.onload = function () {
+        console.log("✅ Imagen de la camiseta cargada correctamente.");
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        ctx.drawImage(tshirtImage, 0, 0, canvas.width, canvas.height);
+    };
+
+    if (!addToCartButton) {
+        console.error("❌ ERROR: No se encontró el botón 'Agregar al Carrito'.");
+        return;
+    }
+
+    addToCartButton.addEventListener('click', function () {
+        console.log("🛒 ¡El botón 'Agregar al Carrito' fue presionado!");
+
+        // Limpiar el canvas y redibujar la imagen antes de exportar
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        ctx.drawImage(tshirtImage, 0, 0, canvas.width, canvas.height);
+
+        const imageURL = canvas.toDataURL("image/png"); // Intentar exportar de nuevo
+        console.log("📸 Imagen generada en el canvas:", imageURL.length > 50 ? "✅ Imagen generada correctamente" : "❌ ERROR: No se generó imagen");
+
+        if (!imageURL || imageURL === "data:,") {
+            alert("Primero personaliza tu camiseta antes de agregarla al carrito.");
+            return;
+        }
+
+        cart.push({ image: imageURL, price: basePrice });
+        console.log("🔹 Estado actual del carrito:", cart);
+
+        updateCart();
+    });
+
+    function updateCart() {
+        console.log("🔄 Ejecutando updateCart()...");
+        cartItems.innerHTML = '';
+        let total = 0;
+
+        cart.forEach((item, index) => {
+            console.log("✅ Añadiendo al carrito:", item);
+            total += item.price;
+
+            const cartItem = document.createElement('li');
+            cartItem.classList.add('list-group-item', 'd-flex', 'justify-content-between', 'align-items-center');
+
+            cartItem.innerHTML = `
+                <img src="${item.image}" width="50" height="50" class="img-thumbnail">
+                <span>$${item.price.toFixed(2)}</span>
+                <button class="btn btn-danger btn-sm remove-item" data-index="${index}">&times;</button>
+            `;
+
+            cartItems.appendChild(cartItem);
+        });
+
+        cartTotal.textContent = `${total.toFixed(2)}$`;
+        cartCount.textContent = cart.length;
+
+        console.log("🛒 Carrito actualizado. Total productos:", cart.length);
+
+        document.querySelectorAll('.remove-item').forEach(button => {
+            button.addEventListener('click', function () {
+                const index = this.getAttribute('data-index');
+                console.log("❌ Eliminando producto en índice:", index);
+                cart.splice(index, 1);
+                updateCart();
+            });
+        });
+    }
+
+    if (cartIcon) {
+        cartIcon.addEventListener('click', function () {
+            const modal = new bootstrap.Modal(document.getElementById('cartModal'));
+            modal.show();
+        });
+    }
+});
+
+
+
+
+
+
+    
+    
