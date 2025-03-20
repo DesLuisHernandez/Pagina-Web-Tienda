@@ -5,6 +5,7 @@
     -webkit-backdrop-filter: blur(10px); /* Soporte para Safari */
     transition: background-color 0.3s ease, backdrop-filter 0.3s ease; /* Transición suave */
     font-family: 'UrbanFont', sans-serif; /* Fuente urbana */
+    padding: 1px 0;  /* Ajustar el padding del navbar */
 }
 
 /* Estilo para los enlaces en el navbar */
@@ -182,4 +183,35 @@ body {
     font-size: 1.1rem;
     margin: 10px 0;
 }
+
+
+#masProductos {
+    margin-top: 450px;  /* Ajusta el valor según sea necesario */
+}
+
+#masProductos .container {
+    text-align: center;  /* Centra el texto y las imágenes */
+}
+
+#masProductos .row {
+    display: flex;
+    justify-content: center;  /* Alinea los productos horizontalmente */
+    flex-wrap: wrap;  /* Asegura que los productos se ajusten en una nueva fila si no caben en la misma línea */
+}
+
+#masProductos .col-md-3 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;  /* Espaciado entre las tarjetas */
+}
+
+
+#personaliza {
+    margin-top: 300px;  /* Ajusta el valor según sea necesario */
+}
+
+
+
+
 

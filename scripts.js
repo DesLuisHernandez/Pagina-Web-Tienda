@@ -168,7 +168,7 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 
-// Agregar al carrito Camiseta Personalizada
+// Agregar al carrito Prenda mas Camiseta Personalizada
 //Esto solo funciona con la extencion live server de VSCode
 document.addEventListener("DOMContentLoaded", function () {
     const cart = [];
@@ -185,10 +185,19 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Función para alternar entre las imágenes del frente y dorso
     const toggleButtons = [
+        // Productos Destacados
         { buttonId: 'toggle1', imgId: 'producto1', frontImage: 'images/partesArribaPrendas/prenda1Frente.png', backImage: 'images/partesArribaPrendas/prenda1Atras.png' },
         { buttonId: 'toggle2', imgId: 'producto2', frontImage: 'images/partesArribaPrendas/prenda2Frente.png', backImage: 'images/partesArribaPrendas/prenda2Atras.png' },
         { buttonId: 'toggle3', imgId: 'producto3', frontImage: 'images/partesArribaPrendas/prenda3Frente.png', backImage: 'images/partesArribaPrendas/prenda3Atras.png' },
-        { buttonId: 'toggle4', imgId: 'producto4', frontImage: 'images/partesArribaPrendas/prenda4Frente.png', backImage: 'images/partesArribaPrendas/prenda4Atras.png' }
+        { buttonId: 'toggle4', imgId: 'producto4', frontImage: 'images/partesArribaPrendas/prenda4Frente.png', backImage: 'images/partesArribaPrendas/prenda4Atras.png' },
+
+        // Mas Productos
+        { buttonId: 'toggle5', imgId: 'producto5', frontImage: 'images/masProductos/masPrendas1Frente.png', backImage: 'images/masProductos/masPrendas1Atras.png' },
+        { buttonId: 'toggle6', imgId: 'producto6', frontImage: 'images/masProductos/masPrendas2Frente.png', backImage: 'images/masProductos/masPrendas2Atras.png' },
+        { buttonId: 'toggle7', imgId: 'producto7', frontImage: 'images/masProductos/masPrendas3Frente.png', backImage: 'images/masProductos/masPrendas3Atras.png' },
+        { buttonId: 'toggle8', imgId: 'producto8', frontImage: 'images/masProductos/masPrendas4Frente.png', backImage: 'images/masProductos/masPrendas4Atras.png' },
+        { buttonId: 'toggle9', imgId: 'producto9', frontImage: 'images/masProductos/masPrendas5Frente.png', backImage: 'images/masProductos/masPrendas5Atras.png' },
+        { buttonId: 'toggle10', imgId: 'producto10', frontImage: 'images/masProductos/masPrendas6Frente.png', backImage: 'images/masProductos/masPrendas6Atras.png' }
     ];
 
     // Lógica para alternar la imagen
