@@ -85,21 +85,99 @@
           </div>
     </section>
 
-    <!-- Sección Productos -->
-    <section id="productos" class="section bg-light py-5">
+    
+
+    <!-- Sección de Productos Destacados -->
+    <section id="productosDestacados" class="section bg-light py-5">
         <div class="container">
-            <h2>Productos</h2>
-            <p>Descubre nuestros productos exclusivos.</p>
+            <h2>Productos Destacados</h2>
+            <div class="row">
+                <!-- Producto 1 -->
+                <div class="col-md-3 mb-4">
+                    <div class="card">
+                        <img id="producto1" src="images/partesArribaPrendas/prenda1Frente.png" class="card-img-top" alt="Camiseta 1">
+                        <div class="card-body">
+                            <h5 class="card-title">Camiseta 1</h5>
+                            <p class="card-text">Descripción de la camiseta.</p>
+                            <button class="btn btn-primary addToCartBtn" data-image="images/partesArribaPrendas/prenda1Frente.png" data-price="50000">Agregar al Carrito</button>
+                            <button class="btn btn-secondary" id="toggle1">🔃 Ver Parte de Atrás</button>
+                            <p class="price">Precio: <span>50,000$ <!-- CAMBIAR PRECIO --></span></p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Producto 2 -->
+                <div class="col-md-3 mb-4">
+                    <div class="card">
+                        <img id="producto2" src="images/partesArribaPrendas/prenda2Frente.png" class="card-img-top" alt="Camiseta 2">
+                        <div class="card-body">
+                            <h5 class="card-title">Camiseta 2</h5>
+                            <p class="card-text">Descripción de la camiseta.</p>
+                            <button class="btn btn-primary addToCartBtn" data-image="images/partesArribaPrendas/prenda2Frente.png" data-price="60000">Agregar al Carrito</button>
+                            <button class="btn btn-secondary" id="toggle2">🔃 Ver Parte de Atrás</button>
+                            <p class="price">Precio: <span>60,000$ <!-- CAMBIAR PRECIO --></span></p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Producto 3 -->
+                <div class="col-md-3 mb-4">
+                    <div class="card">
+                        <img id="producto3" src="images/partesArribaPrendas/prenda3Frente.png" class="card-img-top" alt="Camiseta 3">
+                        <div class="card-body">
+                            <h5 class="card-title">Camiseta 3</h5>
+                            <p class="card-text">Descripción de la camiseta.</p>
+                            <button class="btn btn-primary addToCartBtn" data-image="images/partesArribaPrendas/prenda3Frente.png" data-price="55000">Agregar al Carrito</button>
+                            <button class="btn btn-secondary" id="toggle3">🔃 Ver Parte de Atrás</button>
+                            <p class="price">Precio: <span>55,000$ <!-- CAMBIAR PRECIO --></span></p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Producto 4 -->
+                <div class="col-md-3 mb-4">
+                    <div class="card">
+                        <img id="producto4" src="images/partesArribaPrendas/prenda4Frente.png" class="card-img-top" alt="Camiseta 4">
+                        <div class="card-body">
+                            <h5 class="card-title">Camiseta 4</h5>
+                            <p class="card-text">Descripción de la camiseta.</p>
+                            <button class="btn btn-primary addToCartBtn" data-image="images/partesArribaPrendas/prenda4Frente.png" data-price="45000">Agregar al Carrito</button>
+                            <button class="btn btn-secondary" id="toggle4">🔃 Ver Parte de Atrás</button>
+                            <p class="price">Precio: <span>45,000$ <!-- CAMBIAR PRECIO --></span></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
-    <!-- Sección Ofertas -->
-    <section id="ofertas" class="section bg-warning py-5">
-        <div class="container">
-            <h2>Ofertas</h2>
-            <p>Aprovecha nuestras ofertas especiales.</p>
-        </div>
+
+
+
+
+
+    <!-- Sección con imagen de fondo estático -->
+    <section id="fondoEstatico" class="section" style="background-image: url('images/fondoEstatico.png'); background-size: cover; background-position: center; height: 720px;">
+        <!-- Contenido sobre el fondo -->
+        <!-- Sinopsis -->
+        <section id="sinopsis">
+            <div class="sinopsis-contenedor">
+                <h2>¿Qué encontrarás en DJZ?</h2>
+                <p>DJZ es una tienda en línea especializada en ropa urbana y personalizada.</p>
+                <p>Ofrecemos prendas de alta calidad, con diseños exclusivos y únicos.</p>
+                <p>Personaliza tus prendas para crear un estilo que se adapte a ti.</p>
+                <p>Compra de manera fácil y rápida, garantizando calidad y buen servicio.</p>
+                <p>Con DJZ, destaca entre la multitud con ropa moderna y creativa.</p>
+                <p>Explora y lleva la moda a tu manera, solo en DJZ.</p>
+            </div>
+        </section>
     </section>
+
+
+
+
+
+
 
     <!-- Subir Imagen y Guardar -->
     <section id="personaliza" class="section bg-light py-5">
@@ -135,25 +213,25 @@
 
       <!-- Footer -->
        <!-- Modal o Sección Mis Pedidos -->
-<div id="misPedidosModal" class="modal fade" tabindex="-1" aria-labelledby="misPedidosModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="misPedidosModalLabel">Mis Pedidos</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                <ul id="misPedidosItems" class="list-group">
-                    <!-- Los productos completados se agregarán aquí -->
-                </ul>
-                <p class="mt-3"><strong>Total: </strong> <span id="misPedidosTotal">0.00$</span></p>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+    <div id="misPedidosModal" class="modal fade" tabindex="-1" aria-labelledby="misPedidosModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="misPedidosModalLabel">Mis Pedidos</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <ul id="misPedidosItems" class="list-group">
+                        <!-- Los productos completados se agregarán aquí -->
+                    </ul>
+                    <p class="mt-3"><strong>Total: </strong> <span id="misPedidosTotal">0.00$</span></p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                </div>
             </div>
         </div>
     </div>
-</div>
 
 
 

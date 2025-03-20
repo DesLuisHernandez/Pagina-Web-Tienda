@@ -7,15 +7,15 @@
     font-family: 'UrbanFont', sans-serif; /* Fuente urbana */
 }
 
-/* Fuente urbana (puedes usar Google Fonts) */
-@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@400;700&display=swap');
-
+/* Estilo para los enlaces en el navbar */
 #mainNavbar .navbar-nav .nav-link {
     font-family: 'Roboto Condensed', sans-serif; /* Fuente urbana */
     font-weight: 700; /* Negrita */
     font-size: 1.1rem; /* Tamaño de la fuente */
     text-transform: uppercase; /* Texto en mayúsculas */
     margin: 0 15px; /* Espaciado entre enlaces */
+    color: black; /* Color negro para las letras */
+    text-shadow: 0 0 2px #fff, 0 0 5px #fff; /* Borde blanco en el texto */
 }
 
 /* Ajustes para el logo */
@@ -28,6 +28,7 @@
 .navbar-collapse {
     justify-content: center;
 }
+
 /* Estilos para las secciones */
 .section {
     height: 100vh; /* Cada sección ocupa toda la pantalla */
@@ -131,5 +132,54 @@ body {
 #misPedidosTotal {
     font-size: 1.2rem;
     font-weight: bold;
+}
+
+/* Estilo global para los botones "Agregar al Carrito" */
+.addToCartBtn {
+    background-color: #ffc107; /* Color de fondo verde */
+    color: white; /* Color del texto */
+    border: none; /* Quitar el borde por defecto */
+    font-size: 16px; /* Tamaño de la fuente */
+    padding: 10px 20px; /* Espaciado interno */
+    border-radius: 5px; /* Bordes redondeados */
+    cursor: pointer; /* Cursor en forma de mano */
+    transition: background-color 0.3s ease; /* Transición suave */
+}
+
+/* Estilo cuando el botón es hover (cuando el mouse pasa por encima) */
+.addToCartBtn:hover {
+    background-color: #cc9a05; /* Color de fondo verde más oscuro al hacer hover */
+    color: #fff; /* Aseguramos que el texto siga siendo blanco */
+}
+
+/* Estilo cuando el botón es clickeado (activo) */
+.addToCartBtn:active {
+    background-color: #cc9a05; /* Fondo más oscuro al hacer clic */
+}
+
+
+
+/* Estilo para el contenedor de la sinopsis con fondo negro semitransparente */
+#sinopsis .sinopsis-contenedor {
+    background-color: rgba(0, 0, 0, 0.7); /* Fondo negro con 70% de opacidad */
+    color: white; /* Texto blanco */
+    padding: 30px; /* Espaciado alrededor del texto */
+    border-radius: 10px; /* Bordes redondeados */
+    width: 100%; /* Ancho del contenedor */
+    max-width: 800px; /* Ancho máximo */
+    margin: 0 auto; /* Centrar el contenedor */
+    text-align: center; /* Alinear el texto al centro */
+}
+
+/* Estilo para el título */
+#sinopsis h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+/* Estilo para los párrafos */
+#sinopsis p {
+    font-size: 1.1rem;
+    margin: 10px 0;
 }
 

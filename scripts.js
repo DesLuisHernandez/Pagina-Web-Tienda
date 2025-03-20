@@ -178,17 +178,37 @@ document.addEventListener("DOMContentLoaded", function () {
     const cartTotal = document.getElementById('cartTotal');
     const misPedidosItems = document.getElementById('misPedidosItems');
     const misPedidosTotal = document.getElementById('misPedidosTotal');
-    const addToCartButton = document.getElementById('addToCart');
-    const priceDisplay = document.getElementById('priceDisplay');
+    const addToCartButtons = document.querySelectorAll('.addToCartBtn');  // Para todos los botones de agregar al carrito
     const canvas = document.getElementById('tshirtCanvas');
     const ctx = canvas.getContext('2d');
 
-    const basePrice = 60000;
 
-    // Cargar imagen de la camiseta asegurando que no haya restricciones
+    // Función para alternar entre las imágenes del frente y dorso
+    const toggleButtons = [
+        { buttonId: 'toggle1', imgId: 'producto1', frontImage: 'images/partesArribaPrendas/prenda1Frente.png', backImage: 'images/partesArribaPrendas/prenda1Atras.png' },
+        { buttonId: 'toggle2', imgId: 'producto2', frontImage: 'images/partesArribaPrendas/prenda2Frente.png', backImage: 'images/partesArribaPrendas/prenda2Atras.png' },
+        { buttonId: 'toggle3', imgId: 'producto3', frontImage: 'images/partesArribaPrendas/prenda3Frente.png', backImage: 'images/partesArribaPrendas/prenda3Atras.png' },
+        { buttonId: 'toggle4', imgId: 'producto4', frontImage: 'images/partesArribaPrendas/prenda4Frente.png', backImage: 'images/partesArribaPrendas/prenda4Atras.png' }
+    ];
+
+    // Lógica para alternar la imagen
+    toggleButtons.forEach(button => {
+        document.getElementById(button.buttonId).addEventListener('click', function () {
+            const imgElement = document.getElementById(button.imgId);
+            if (imgElement.src.includes(button.frontImage)) {
+                imgElement.src = button.backImage;
+            } else {
+                imgElement.src = button.frontImage;
+            }
+        });
+    });
+
+    const basePrice = 60000;  // Precio base para la camiseta personalizada
+
+    // Cargar imagen de la camiseta personalizada (si la tienes)
     const tshirtImage = new Image();
     tshirtImage.crossOrigin = "anonymous"; // Permite cargar imágenes sin restricciones
-    tshirtImage.src = 'images/camisetaBlanca.png';
+    tshirtImage.src = 'images/camisetaBlanca.png';  // Cambia esta ruta a la imagen de tu camiseta personalizada
 
     tshirtImage.onload = function () {
         console.log("✅ Imagen de la camiseta cargada correctamente.");
@@ -196,13 +216,23 @@ document.addEventListener("DOMContentLoaded", function () {
         ctx.drawImage(tshirtImage, 0, 0, canvas.width, canvas.height);
     };
 
-    if (!addToCartButton) {
-        console.error("❌ ERROR: No se encontró el botón 'Agregar al Carrito'.");
-        return;
+    // Función para agregar productos al carrito (camisetas personalizadas o productos destacados)
+    function addProductToCart(image, price) {
+        cart.push({ image: image, price: price });
+        updateCart();
     }
 
-    // Agregar al carrito (como ya tienes)
-    addToCartButton.addEventListener('click', function () {
+    // Lógica para los botones de agregar al carrito
+    addToCartButtons.forEach(button => {
+        button.addEventListener('click', function () {
+            const image = this.getAttribute('data-image');
+            const price = parseFloat(this.getAttribute('data-price'));
+            addProductToCart(image, price);  // Agrega el producto al carrito
+        });
+    });
+
+    // Agregar al carrito (camiseta personalizada)
+    document.getElementById('addToCart').addEventListener('click', function () {
         const imageURL = canvas.toDataURL("image/png");
 
         if (!imageURL || imageURL === "data:,") {
@@ -210,13 +240,12 @@ document.addEventListener("DOMContentLoaded", function () {
             return;
         }
 
-        cart.push({ image: imageURL, price: basePrice });
-        updateCart();
+        addProductToCart(imageURL, basePrice);  // Agrega la camiseta personalizada al carrito
     });
 
     // Función para actualizar el carrito
     function updateCart() {
-        cartItems.innerHTML = '';
+        cartItems.innerHTML = '';  // Limpiar el carrito
         let total = 0;
 
         cart.forEach((item, index) => {
@@ -237,6 +266,7 @@ document.addEventListener("DOMContentLoaded", function () {
         cartTotal.textContent = `${total.toFixed(2)}$`;
         cartCount.textContent = cart.length;
 
+        // Eliminar item del carrito
         document.querySelectorAll('.remove-item').forEach(button => {
             button.addEventListener('click', function () {
                 const index = this.getAttribute('data-index');
@@ -248,7 +278,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Proceder al pago (guardar los productos en "Mis Pedidos")
     document.getElementById('procederAlPago').addEventListener('click', function () {
-        // Guardar los productos en "Mis Pedidos"
         cart.forEach(item => {
             const pedidoItem = document.createElement('li');
             pedidoItem.classList.add('list-group-item', 'd-flex', 'justify-content-between', 'align-items-center');
@@ -264,13 +293,12 @@ document.addEventListener("DOMContentLoaded", function () {
         misPedidosTotal.textContent = `${totalPedido.toFixed(2)}$`;
 
         // Vaciar el carrito
-        cart.length = 0; // Esto borra el carrito
-        updateCart(); // Actualiza la vista del carrito
+        cart.length = 0;  // Esto borra el carrito
+        updateCart();  // Actualiza la vista del carrito
     });
 
     // Mostrar el modal "Mis Pedidos" al hacer clic en el enlace
     document.getElementById('misPedidosLink').addEventListener('click', function () {
-        // Mostrar el modal de Mis Pedidos
         const misPedidosModal = new bootstrap.Modal(document.getElementById('misPedidosModal'));
         misPedidosModal.show();
     });
