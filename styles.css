@@ -1,117 +1,132 @@
-/* Estilos para el Navbar */
+/* Contenedor de las imágenes */
+.image-container {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+}
+
+.image-container img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    transition: opacity 0.5s ease-in-out;
+}
+
+.image-container .frente {
+    opacity: 1;
+}
+
+.image-container .atras {
+    opacity: 0;
+}
+
+.image-container:hover .frente {
+    opacity: 0;
+}
+
+.image-container:hover .atras {
+    opacity: 1;
+}
+
+/* Navbar */
 #mainNavbar {
-    background-color: rgba(255, 255, 255, 0.1); /* Fondo semi-transparente inicial */
-    backdrop-filter: blur(10px); /* Efecto de desenfoque */
-    -webkit-backdrop-filter: blur(10px); /* Soporte para Safari */
-    transition: background-color 0.3s ease, backdrop-filter 0.3s ease; /* Transición suave */
-    font-family: 'UrbanFont', sans-serif; /* Fuente urbana */
-    padding: 1px 0;  /* Ajustar el padding del navbar */
+    background-color: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease, backdrop-filter 0.3s ease;
+    font-family: 'UrbanFont', sans-serif;
+    padding: 1px 0;
 }
 
-/* Estilo para los enlaces en el navbar */
 #mainNavbar .navbar-nav .nav-link {
-    font-family: 'Roboto Condensed', sans-serif; /* Fuente urbana */
-    font-weight: 700; /* Negrita */
-    font-size: 1.1rem; /* Tamaño de la fuente */
-    text-transform: uppercase; /* Texto en mayúsculas */
-    margin: 0 15px; /* Espaciado entre enlaces */
-    color: black; /* Color negro para las letras */
-    text-shadow: 0 0 2px #fff, 0 0 5px #fff; /* Borde blanco en el texto */
+    font-family: 'Roboto Condensed', sans-serif;
+    font-weight: 700;
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    margin: 0 15px;
+    color: black;
+    text-shadow: 0 0 2px #fff, 0 0 5px #fff;
 }
 
-/* Ajustes para el logo */
 .navbar-brand img {
-    border-radius: 50%; /* Logo circular */
-    border: 2px solid #fff; /* Borde blanco */
+    border-radius: 50%;
+    border: 2px solid #fff;
 }
 
-/* Centrar los enlaces en el navbar */
 .navbar-collapse {
     justify-content: center;
 }
 
-/* Estilos para las secciones */
+/* Secciones */
 .section {
-    height: 100vh; /* Cada sección ocupa toda la pantalla */
+    min-height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
 }
 
-/* Espacio para evitar que el contenido quede detrás del navbar */
+/* Padding para navbar fijo */
 body {
     padding-top: 56px;
 }
 
-/* Estilos para el Footer */
+/* Footer */
 .footer {
-    background-color: #333; /* Fondo oscuro */
-    color: #fff; /* Texto blanco */
-    font-family: 'Roboto Condensed', sans-serif; /* Fuente urbana */
+    background-color: #333;
+    color: #fff;
+    font-family: 'Roboto Condensed', sans-serif;
 }
 
 .footer h5 {
-    font-weight: 700; /* Negrita */
-    font-size: 1.2rem; /* Tamaño de la fuente */
-    text-transform: uppercase; /* Texto en mayúsculas */
-    margin-bottom: 1rem; /* Espaciado inferior */
+    font-weight: 700;
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
 }
 
 .footer a {
-    color: #fff; /* Texto blanco para enlaces */
-    text-decoration: none; /* Sin subrayado */
-    transition: color 0.3s ease; /* Transición suave */
+    color: #fff;
+    text-decoration: none;
+    transition: color 0.3s ease;
 }
 
 .footer a:hover {
-    color: #ffc107; /* Color amarillo al pasar el mouse */
+    color: #ffc107;
 }
 
-/* Estilos para el mapa */
 .map-container {
-    border: 3px solid #ffc107; /* Borde amarillo */
-    border-radius: 10px; /* Bordes redondeados */
-    overflow: hidden; /* Oculta el desbordamiento del iframe */
+    border: 3px solid #ffc107;
+    border-radius: 10px;
+    overflow: hidden;
 }
 
-/* Estilos para los derechos de autor */
 .footer .text-center {
-    margin-top: 2rem; /* Espaciado superior */
-    font-size: 0.9rem; /* Tamaño de la fuente */
+    margin-top: 2rem;
+    font-size: 0.9rem;
 }
 
-/* Estilos para los íconos de redes sociales */
+/* Íconos sociales */
 .social-icon {
-    width: 40px; /* Tamaño del ícono */
-    height: 40px; /* Tamaño del ícono */
-    border-radius: 50%; /* Forma circular */
-    margin-right: 10px; /* Espaciado a la derecha */
-    font-size: 1.2rem; /* Tamaño del ícono */
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 10px;
+    font-size: 1.2rem;
 }
 
-/* Colores de fondo para cada red social */
-.bg-facebook {
-    background-color: #3b5998; /* Azul de Facebook */
-}
+.bg-facebook { background-color: #3b5998; }
+.bg-instagram { background-color: #e4405f; }
+.bg-twitter { background-color: #1da1f2; }
+.bg-youtube { background-color: #cd201f; }
+.bg-tiktok { background-color: #000000; }
 
-.bg-instagram {
-    background-color: #e4405f; /* Rosa de Instagram */
-}
-
-.bg-twitter {
-    background-color: #1da1f2; /* Azul de Twitter */
-}
-
-.bg-youtube {
-    background-color: #cd201f; /* Rojo de YouTube */
-}
-
-.bg-tiktok {
-    background-color: #000000; /* Negro de Tiktok */
-}
-
-/* Estilos para "Mis Pedidos" */
+/* Modal "Mis Pedidos" */
 #misPedidosModal .modal-header {
     background-color: #f8f9fa;
 }
@@ -135,83 +150,265 @@ body {
     font-weight: bold;
 }
 
-/* Estilo global para los botones "Agregar al Carrito" */
+/* Botón "Agregar al Carrito" */
 .addToCartBtn {
-    background-color: #ffc107; /* Color de fondo verde */
-    color: white; /* Color del texto */
-    border: none; /* Quitar el borde por defecto */
-    font-size: 16px; /* Tamaño de la fuente */
-    padding: 10px 20px; /* Espaciado interno */
-    border-radius: 5px; /* Bordes redondeados */
-    cursor: pointer; /* Cursor en forma de mano */
-    transition: background-color 0.3s ease; /* Transición suave */
+    background-color: #ffc107;
+    color: white;
+    border: none;
+    font-size: 16px;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
 }
 
-/* Estilo cuando el botón es hover (cuando el mouse pasa por encima) */
-.addToCartBtn:hover {
-    background-color: #cc9a05; /* Color de fondo verde más oscuro al hacer hover */
-    color: #fff; /* Aseguramos que el texto siga siendo blanco */
-}
-
-/* Estilo cuando el botón es clickeado (activo) */
+.addToCartBtn:hover,
 .addToCartBtn:active {
-    background-color: #cc9a05; /* Fondo más oscuro al hacer clic */
+    background-color: #cc9a05;
 }
 
-
-
-/* Estilo para el contenedor de la sinopsis con fondo negro semitransparente */
+/* Sinopsis */
 #sinopsis .sinopsis-contenedor {
-    background-color: rgba(0, 0, 0, 0.7); /* Fondo negro con 70% de opacidad */
-    color: white; /* Texto blanco */
-    padding: 30px; /* Espaciado alrededor del texto */
-    border-radius: 10px; /* Bordes redondeados */
-    width: 100%; /* Ancho del contenedor */
-    max-width: 800px; /* Ancho máximo */
-    margin: 0 auto; /* Centrar el contenedor */
-    text-align: center; /* Alinear el texto al centro */
+    background-color: rgba(0, 0, 0, 0.7);
+    color: white;
+    padding: 30px;
+    border-radius: 10px;
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
 }
 
-/* Estilo para el título */
 #sinopsis h2 {
     font-size: 2rem;
     margin-bottom: 20px;
 }
 
-/* Estilo para los párrafos */
 #sinopsis p {
     font-size: 1.1rem;
     margin: 10px 0;
 }
 
-
+/* Más Productos */
 #masProductos {
-    margin-top: 450px;  /* Ajusta el valor según sea necesario */
+    margin-top: 450px;
 }
 
 #masProductos .container {
-    text-align: center;  /* Centra el texto y las imágenes */
+    text-align: center;
 }
 
 #masProductos .row {
     display: flex;
-    justify-content: center;  /* Alinea los productos horizontalmente */
-    flex-wrap: wrap;  /* Asegura que los productos se ajusten en una nueva fila si no caben en la misma línea */
+    justify-content: center;
+    flex-wrap: wrap;
 }
 
 #masProductos .col-md-3 {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-bottom: 20px;  /* Espaciado entre las tarjetas */
+    margin-bottom: 20px;
 }
 
-
+/* Personaliza */
 #personaliza {
-    margin-top: 300px;  /* Ajusta el valor según sea necesario */
+    margin-top: 300px;
 }
 
+/* Tarjetas */
+.card {
+    border: none;
+    box-shadow: none;
+    background-color: transparent;
+}
 
+/* Estilos para los selectores de talla */
+.size-selector .btn-group {
+    width: 100%;
+}
 
+.size-selector .btn {
+    flex: 1;
+}
 
+.btn-check:checked + .btn-outline-primary {
+    background-color: #0d6efd;
+    color: white;
+}
 
+/* Estilos para el canvas de personalización */
+#tshirtCanvas {
+    background-color: white;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+/* Estilos para los modales */
+.modal-body img.img-thumbnail {
+    max-width: 80px;
+}
+
+/* Sección Personalización */
+#personaliza .container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 30px;
+    background-color: rgba(220, 220, 220, 0.8);
+    border-radius: 20px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+#personaliza h2 {
+    font-family: 'Georgia', serif;
+    font-style: italic;
+    color: rgba(20, 20, 20, 0.9);
+    margin-bottom: 15px;
+}
+
+#personaliza p {
+    font-family: 'Arial', sans-serif;
+    color: rgba(20, 20, 20, 0.7);
+    margin-bottom: 20px;
+}
+
+#priceDisplay {
+    font-family: 'Arial', sans-serif;
+    font-size: 18px;
+    color: rgba(20, 20, 20, 0.8);
+}
+
+/* Sección Contacto */
+#contacto .container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: rgba(240, 240, 240, 0.9);
+    border-radius: 15px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+#contacto h2 {
+    font-family: 'Georgia', serif;
+    font-size: 24px;
+    font-style: italic;
+    color: rgba(20, 20, 20, 0.9);
+}
+
+#contacto label {
+    font-family: 'Arial', sans-serif;
+    font-weight: bold;
+    font-size: 14px;
+    color: rgba(30, 30, 30, 0.8);
+}
+
+#contacto input,
+#contacto textarea {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid rgba(50, 50, 50, 0.3);
+    border-radius: 8px;
+    font-size: 14px;
+}
+
+/* =============================== */
+/* MEDIA QUERIES PARA RESPONSIVE  */
+/* =============================== */
+
+@media (max-width: 768px) {
+    #mainNavbar .navbar-nav .nav-link {
+        font-size: 1rem;
+        margin: 0 8px;
+    }
+
+    #masProductos {
+        margin-top: 120px;
+    }
+
+    #personaliza {
+        margin-top: 120px;
+    }
+
+    .addToCartBtn {
+        font-size: 14px;
+        padding: 8px 16px;
+    }
+
+    #sinopsis h2 {
+        font-size: 1.5rem;
+    }
+
+    #sinopsis p {
+        font-size: 1rem;
+    }
+
+    #tshirtCanvas {
+        width: 100%;
+        height: auto;
+    }
+}
+
+@media (max-width: 576px) {
+    .social-icon {
+        width: 32px;
+        height: 32px;
+        font-size: 1rem;
+    }
+
+    #masProductos .col-md-3 {
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+
+    .image-container {
+        aspect-ratio: 4 / 3;
+    }
+
+    #personaliza .container {
+        padding: 20px;
+    }
+
+    #contacto .container {
+        padding: 15px;
+    }
+}
+
+/* Estilos para cards de productos */
+.card {
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    height: 100%;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+.card-img-top {
+    height: 250px;
+    object-fit: cover;
+}
+
+.card-body {
+    display: flex;
+    flex-direction: column;
+}
+
+.price {
+    font-weight: bold;
+    color: #333;
+    margin-top: 10px;
+}
+
+/* Botón de ver parte de atrás */
+.btn-secondary {
+    background-color: #6c757d;
+    color: white;
+}
+
+.btn-secondary:hover {
+    background-color: #5a6268;
+    color: white;
+}
