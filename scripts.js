@@ -352,7 +352,7 @@ document.addEventListener('DOMContentLoaded', function() {
             showFeedback('El carrito está vacío', 'error');
             return;
         }
-
+        
         // Guardar en Mis Pedidos
         cart.forEach(item => {
             const pedidoItem = document.createElement('li');
@@ -374,6 +374,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
         const totalPedido = cart.reduce((sum, item) => sum + item.price, 0);
         misPedidosTotal.textContent = `$${totalPedido.toFixed(2)}`;
+
+    
 
         // Vaciar carrito
         cart = [];
@@ -440,4 +442,18 @@ document.addEventListener('DOMContentLoaded', function() {
         document.body.appendChild(feedback);
         setTimeout(() => feedback.remove(), 3000);
     }
+
+
+    
+
+
+
+
+
+
+
+
+
 });
+
+
